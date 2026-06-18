@@ -1,19 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopDash — E-Commerce Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-     <!-- <script src="./task 1.js"></script> -->
-    <!-- <script src="./task2.js"></script> -->
-    <!-- <script src="./Task3.js"></script> -->
-     <!-- <script src="./task 4.js"></script> -->
-    <!-- <script src="./task5.js"></script> -->
-    <!-- <script src="./task6.js"></script> -->
-    <!-- <script src="./task7.js"></script> -->
-    <script src="./task 8.js"></script>
-    
+
+  <header>
+    <h1>Shop<span>Dash</span></h1>
+    <button id="cart-btn" onclick="openCart()">
+      🛒 Cart <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <main>
+
+    <section id="stats">
+      <div class="stat-card blue">
+        <div class="stat-label">Total Products</div>
+        <div class="stat-value" id="stat-total">—</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-label">Average Price</div>
+        <div class="stat-value" id="stat-avg">—</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-label">Highest Price</div>
+        <div class="stat-value" id="stat-high">—</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-label">Lowest Price</div>
+        <div class="stat-value" id="stat-low">—</div>
+      </div>
+    </section>
+
+    <section id="controls">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="🔍  Search products..."
+        oninput="applyFilters()"
+      />
+      <select id="category-filter" onchange="applyFilters()">
+        <option value="all">All Categories</option>
+        <option value="men's clothing">Men's Clothing</option>
+        <option value="women's clothing">Women's Clothing</option>
+        <option value="electronics">Electronics</option>
+        <option value="jewelery">Jewelry</option>
+      </select>
+    </section>
+
+    <div id="status-msg">⏳ Loading Products...</div>
+
+    <div id="product-grid">
+      <div id="no-results">No products match your search.</div>
+    </div>
+
+  </main>
+
+  <div id="cart-overlay" onclick="handleOverlayClick(event)">
+    <div id="cart-panel">
+      <button id="close-cart" onclick="closeCart()">✕ Close</button>
+      <h2>🛒 Your Cart</h2>
+      <div id="cart-items-list">
+        <div id="empty-cart">Your cart is empty.</div>
+      </div>
+      <div id="cart-total">
+        Total: $<span id="total-price">0.00</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
 </body>
 </html>
